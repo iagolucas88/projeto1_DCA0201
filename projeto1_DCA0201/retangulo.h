@@ -2,7 +2,7 @@
 #define RETANGULO_H_INCLUDED
 
 class Retangulo : public Poligono {
-    Retangulo(int x, int y, int larg, int alt);
+    Retangulo(int x, int y, int largura, int altura);
 
 }
 
