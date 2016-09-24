@@ -6,10 +6,16 @@ using namespace std;
 
 Poligono::Poligono(Point v1[])
 {
-    for (int i = 0; i < getV(); i++)
+    cout << "Construtor\n";
+    for (int i = 0; i < v.getV(); i++)
     {
-        v[i] = 0;
+        v[i].setXY(0,0);
     }
+}
+
+Poligono::~Poligono()
+{
+    cout << "Destrutor\n";
 }
 
 int Poligono::setV(Point v1[])
@@ -55,7 +61,7 @@ int Poligono::setV(Point v1[])
 
 int Poligono::getV()
 {
-    int nVertice = sizeof(Point)/sizeof(Poligono);
+    int nVertice = sizeof(v)/sizeof(Poligono);
     return (nVertice);
 }
 
@@ -65,19 +71,19 @@ float Poligono::area(Point v1[])
 
     //Soma o produto de cada elemento de x(ou y) com o seguinte de y(ou x),
     //a partir do primeiro(v[0]) ateh o penultimo.
-    for(int i = 0; i < getV() - 1; i++)
+    for(int i = 0; i < v.getV() - 1; i++)
     {
         s_x = s_x + v[i].getX()*v[i+1].getY();
     }
 
-    for(int i = 0; i < getV() - 1; i++)
+    for(int i = 0; i < v.getV() - 1; i++)
     {
         s_y = s_y + v[i].getY()*v[i+1].getX();
     }
 
     //Soma o produto do ultimo elemento de x(ou y) com o primeio de y(ou x)
-    s_x = s_x + v[getV()].getX()*v[0].getY();
-    s_y = s_y + v[getV()].getY()*v[0].getX();
+    s_x = s_x + v[v.getV()].getX()*v[0].getY();
+    s_y = s_y + v[v.getV()].getY()*v[0].getX();
 
     //Retorna o valor da area do poligono.
     return ((s_x - s_y)/2);
@@ -85,7 +91,7 @@ float Poligono::area(Point v1[])
 
 void Poligono::move(float a, float b)
 {
-    for (int i = 0; i < getV(); i++)
+    for (int i = 0; i < v.getV(); i++)
     {
         v[i].translata(a, b);
     }
@@ -98,7 +104,7 @@ void Poligono::rotaciona(Point p1, float nGrau)
 
 void Poligono::imprime()
 {
-    for (int i = 0; i < getV(); i++)
+    for (int i = 0; i < v.getV(); i++)
     {
         cout << "(" << v[i].getX() << ", " << v[i].getY() << ")-->";
     }

@@ -4,8 +4,6 @@
 
 using namespace std;
 
-
-
 Point::Point(float px, float py)
 {
     //cout << "Construtor\n";

@@ -2,7 +2,7 @@
 #define POLIGONO_H
 #include "point.h"
 
-class Poligono
+class Poligono : public Point
 {
 private:
     Point v[100];
