@@ -33,9 +33,15 @@ int main(void)
 
     cout << "Poligono:\n";
 
-
-
-
+/*
+    Retangulo a(0,0,3,4);
+    a.imprime();
+    cout << a.area() << endl;
+    a.move(-3,4);
+    cout << a.area() << endl;
+    a.rotaciona(30);
+    cout << a.area() << endl;
+*/
 
     return 0;
 }
